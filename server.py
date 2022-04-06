@@ -50,7 +50,32 @@ def login():
 
     @app.route("/signup/",methods=['GET','POST'])
     def signup():
+      if request.method=='GET':
+        return render_template('sign_up.html')
+    elif request.method=='POST':
+      global data_dict
+      email_id = request.form.get('email').lower()
+      password = request.form.get('password')
+      if email_id in data_dict.keys():
+        return render_template('sign_up.html',error='email already registered please use other email')
       
-    
+      #if email is not already registered
+      salt = os.urandom(32)
+      password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+      
+      #send the activation message to activate account
+      activation_string = random_string()
+      title = 'activation of account'
+      mail_obj = Message(title, sender = app.config['MAIL_USERNAME'], recipients = [email_id])
+      mail_obj.body = f'code to activate your account is {activation_string}'
+      mail.send(mail_obj)
+      
+      #store the data temporarily on session
+      session['password_hash'] = password_hash
+      session['salt'] = salt
+      session['email'] = email_id
+      session['activation_code'] = activation_string
+      return redirect(url_for('activate'))
+
     
     
