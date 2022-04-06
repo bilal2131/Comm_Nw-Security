@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sign-up page</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/sign_up.css/')}}"
+    />
+  </head>
+  <body>
+    <form action="" method="POST">
+      <h2>sign-up page</h2>
+      <label for="email">email:</label><br />
+      <input type="email" id="email" name="email" value="" /><br />
+      <label for="password">password:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value=""
+      /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <a href="{{url_for('login')}}">sign-in if you already have an account</a>
+    <p>{{error}}</p>
+  </body>
+</html>
