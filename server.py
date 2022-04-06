@@ -47,3 +47,10 @@ def login():
       else:
         return render_template('login.html',error='Your Username and Password do not match')
       return render_template('login.html',error='email does not exist, please signup to create the account')
+
+    @app.route("/signup/",methods=['GET','POST'])
+    def signup():
+      
+    
+    
+    
