@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>activation page</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/activation.css/')}}"
+    />
+  </head>
+  <body>
+    <form method="POST">
+      <h2>activation page</h2>
+      <label for="code">Activation Code:</label><br />
+      <input type="text" id="code" name="code" value="" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <p>{{error}}</p>
+  </body>
+</html>
