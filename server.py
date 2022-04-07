@@ -77,5 +77,19 @@ def login():
       session['activation_code'] = activation_string
       return redirect(url_for('activate'))
 
-    
+    @app.route("/activate/",methods=['GET','POST'])
+    def activeate():
+      if request.method=='GET':
+        return render_template("activate.html")
+     elif request.method=='POST':
+      activation_code = request.form.get('code')
+      if activation_code == session.get('activation_code'):
+        #update the data_dict with empty elements
+        email = session.get('email')
+        password_hash = session.get('password_hash')
+        salt = session.get('salt')
+        data_dict[email] = {'messages':{},'salt':salt,'password_hash':password_hash}
+        return redirect(url_for('send'))
+      return render_template("activate.html",error='code did not match.please try again')
+     
     
