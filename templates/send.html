@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>chat page</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/send.css')}}"
+    />
+  </head>
+  <body>
+    <form method="POST">
+      <h2>send page</h2>
+      <label for="email">Reciever-email:</label><br />
+      <input type="email" id="email" name="email" value="" /><br /><br />
+      <label for="topic">topic:</label><br />
+      <input type="text" id="topic" name="topic" value="" /><br /><br />
+      <label for="message">message:</label><br />
+      <textarea id="message" name="message" rows="5" cols="50"></textarea>
+      <input type="submit" value="Send" />
+    </form>
+    <p>{{message}}</p>
+  </body>
+</html>
