@@ -92,4 +92,13 @@ def login():
         return redirect(url_for('send'))
       return render_template("activate.html",error='code did not match.please try again')
      
+    @app.route("/msg/list/",methods=['GET'])
+    def msgs():
+      if request.method=='GET':
+        email = session.get('email')
+        topics = data_dict[email]['messages'].keys()
+        return render_template('topic_list.html',topics=topics)
+      
+    
+      
     
