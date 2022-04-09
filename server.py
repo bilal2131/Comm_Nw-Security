@@ -126,7 +126,20 @@ def msgs():
     email = session.get('email')
     topics = data_dict[email]['messages'].keys()
     return render_template('topic_list.html',topics=topics)
-      
+
+@app.route("/msg/<string:topic>",methods=['GET','POST'])
+def msg(topic):
+  if request.method=='GET':
+    return render_template('topic.html')
+  elif request.method=='POST':
+    email = session.get('email')
+    msg = data_dict[email]['messages'][topic]
+    print(msg)
+    #decode message
+    ciphertext = msg['ciphertext']
+    key = request.form.get('key')
+    plaintext = cryptocode.decrypt(ciphertext,key)
+    
     
       
     
