@@ -119,7 +119,7 @@ def send():
       return render_template('send.html',message='the message is sent')
     return render_template('send.html',message='the email is not registered')
       
-    
+ 
 @app.route("/msg/list/",methods=['GET'])
 def msgs():
   if request.method=='GET':
@@ -139,7 +139,8 @@ def msg(topic):
     ciphertext = msg['ciphertext']
     key = request.form.get('key')
     plaintext = cryptocode.decrypt(ciphertext,key)
-    
-    
-      
+    #return decoded message
+    return render_template('message.html',message=plaintext)
+if __name__=='__main__':
+  app.run(host='0.0.0.0',port=5000,debug=True)
     
