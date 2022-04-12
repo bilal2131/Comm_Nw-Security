@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>topic page</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/topic.css')}}"/>
+  </head>
+  <body>
+    <form method="POST">
+      <h2>topic page</h2>
+      <label for="key">key:</label><br />
+      <input type="text" id="key" name="key" value="" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <a href="{{url_for('signup')}}">sign-up if you don't have account</a>
+    <p>{{error}}</p>
+  </body>
+</html>
