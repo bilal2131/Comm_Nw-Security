@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>message list</title>
+  </head>
+  <body>
+    <h2>message list</h2>
+    <div>
+      {% for t in topics %}
+      <div><a href="{{url_for('msg',topic=t)}}">{{t}}</a></div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
