@@ -1,5 +1,5 @@
 
-# this modile is to test the encryption
+# this module is to test the encryption
 import cyptocode
 
 key = 'test key'
