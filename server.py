@@ -5,6 +5,7 @@ from flask import redirect, url_for
 from flask_session import Session
 from flask_mail import Mail,Message
 import hashlib
+import haslib
 import os
 from string_utility import *
 import cryptocode
