@@ -20,7 +20,7 @@ Session(app) #add cookies/session functionality for temp Storage
 
 #SMTP Configuration
 app.config['MAIL_SERVER']='smtp.gmail.com
-app.config['MAIL_PORT'] = 564
+app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'bilal.it@gmail.com'
 app.config['MAIL_PASSWORD'] = 'acauuyeufonnxwmy'
 app.config['MAIL_USE_SSL'] = True
@@ -90,7 +90,7 @@ def activeate():
       salt = session.get('salt')
       data_dict[email] = {'messages':{},'salt':salt,'password_hash':password_hash}
       return redirect(url_for('send'))
-    return render_template("activate.html",error='code did not match.please try again')
+    return render_template("activate.html",error='Code did not match. Please try again')
 
 #end points for message passing/chat
 @app.route("/send/",methods=['GET','POST'])
